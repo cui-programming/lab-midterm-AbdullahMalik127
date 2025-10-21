@@ -1,79 +1,66 @@
-import React, {useState} from 'react';
-import { View, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { View, FlatList, Text } from 'react-native';
+import { TextInput, Button } from '../ui';
 import { styles } from '../../styles/styles';
-import {Text, Button, TextInput} from '../ui';
 import { initialAzkaar } from '../../data/azkaar';
-/**
- * Custom/SearchAndAdd
- * Students implement:
- *  - a text box to add a new zikr (phrase only, count starts at 0)
- *  - a search box to filter existing azkaar by phrase
- *  - use only components from 'ui' for inputs and buttons
- *  - lifting state up if needed
- */
+
+
 export default function SearchAndAdd() {
-  const [phrase, setPhrase]= useState('');
   const [items, setItems] = useState(initialAzkaar);
+  const [search, setSearch] = useState('');
+  const [newPhrase, setNewPhrase] = useState('');
 
-  const handleSearch=()=>{
-   const exists = items.some(it =>
-      it.phrase.toLowerCase().includes(phrase.toLowerCase())
-    );
-    console.log(exists ? 'Phrase exists' : 'Not found');
 
-  }
-  const handleAdd=()=>{
-    const exists = items.some(it =>
-      it.phrase.toLowerCase() === phrase.toLowerCase()
-    );
 
-    if (exists) {
-      console.log('Phrase already exists');
-      return;
+  const filteredItems = items.filter((item) =>
+    item.phrase.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const handleAdd = () => {
+    const trimmed = newPhrase.trim();
+    if (
+      trimmed &&
+      !items.some((item) => item.phrase.toLowerCase() === trimmed.toLowerCase())
+    ) {
+      const newItem = {
+        id: Date.now().toString(),
+        phrase: trimmed,
+        count: 0,
+      };
+      setItems([...items, newItem]);
+      setNewPhrase('');
     }
-
-    const newItem = {
-      id: (items.length + 1).toString(),
-      phrase,
-      count: 0,
-    };
-    setItems(prev => [...prev, newItem]); // immutable update
-    console.log('Phrase added successfully');
   };
-    
-
-  
 
   return (
-  <View style={styles.section}>
-    {/* TODO: Implement search and add UI here using ui/TextInput and ui/Button */}
-      <View style={styles.rowContainer}>
+    <View style={styles.section}>
+      {/* Search Box */}
+      <TextInput
+        placeholder="Search azkaar..."
+        value={search}
+        onChangeText={setSearch}
+        style={styles.input}
+      />
+
+      {/* Add Box and Button */}
+      <View style={{ flexDirection: 'row', marginVertical: 10, gap: 8 }}>
         <TextInput
-          placeholder="Enter phrase to Search"
-          value={phrase}
-          onChangeText={setPhrase}
-          style={styles.halfInput}
+          placeholder="Add new phrase"
+          value={newPhrase}
+          onChangeText={setNewPhrase}
+          style={[styles.input, { flex: 1 }]}
         />
-        <TextInput
-          placeholder="Enter phrase to Add"
-          value={phrase}
-          onChangeText={setPhrase}
-          style={styles.halfInput}
-        />
+        <Button onPress={handleAdd}>Add</Button>
       </View>
-      
-      <View style={styles.rowContainer}>
-        <Button title="Search" onPress={handleSearch} style={styles.halfButton} />
-        <Button title="Add" onPress={handleAdd} style={styles.halfButton} />
-      </View>
-    <Text style={styles.smallText}>Items count: {items.length}</Text>
-    {items.map(item => (
-      <View key={item.id} style={{paddingVertical:4}}>
-        <Text>{item.phrase} — {item.count}</Text>
-      </View>
-      ))}
-  </View>
-      
-      
+
+      {/* Filtered List */}
+      <FlatList
+        data={filteredItems}
+        keyExtractor={(it) => it.id.toString()}
+        renderItem={({ item }) => (
+          <Text style={styles.itemName}>{item.phrase}</Text>
+        )}
+      />
+    </View>
   );
 }
