@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F0F0', // Light solid background
+    backgroundColor: '#F0F0F0', 
     padding: 20,
   },
 
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   section: {
     marginVertical: 14,
     padding: 16,
-    backgroundColor: '#FFFFFF', // solid white section
+    backgroundColor: '#FFFFFF', 
     borderRadius: 12,
     borderWidth: 2,
     borderColor: '#007BFF',
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#E3F2FD', // light blue background
+    backgroundColor: '#E3F2FD', 
     paddingVertical: 12,
     paddingHorizontal: 14,
     marginBottom: 10,
@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#007BFF', // solid blue button
+    backgroundColor: '#007BFF', 
     borderRadius: 10,
     paddingVertical: 12,
     paddingHorizontal: 20,
