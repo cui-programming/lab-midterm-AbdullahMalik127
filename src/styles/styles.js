@@ -1,96 +1,95 @@
 import { StyleSheet } from 'react-native';
 
+/**
+ * 🎨 Solid Color Design
+ * Flat, clean, and modern style — no shadows, just bold colors and clear structure.
+ */
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F4F7',
+    backgroundColor: '#F0F0F0', // Light solid background
     padding: 20,
   },
 
   headerText: {
-    fontSize: 26,
-    fontWeight: '700',
-    color: '#1E293B',
-    marginBottom: 18,
+    fontSize: 28,
+    fontWeight: '800',
+    color: '#1A1A1A',
+    marginBottom: 20,
     textAlign: 'center',
-    letterSpacing: 0.5,
+    textTransform: 'uppercase',
   },
 
   section: {
-    marginVertical: 16,
-    padding: 18,
-    backgroundColor: '#FFFFFF',
+    marginVertical: 14,
+    padding: 16,
+    backgroundColor: '#FFFFFF', // solid white section
     borderRadius: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.08,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    elevation: 3,
+    borderWidth: 2,
+    borderColor: '#007BFF',
   },
 
   sectionTitle: {
     fontSize: 20,
-    fontWeight: '600',
-    marginBottom: 10,
-    color: '#0F172A',
+    fontWeight: '700',
+    color: '#007BFF',
+    marginBottom: 12,
+    textTransform: 'capitalize',
   },
 
   itemRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#E3F2FD', // light blue background
     paddingVertical: 12,
     paddingHorizontal: 14,
     marginBottom: 10,
-    borderRadius: 10,
+    borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: '#007BFF',
   },
 
   itemName: {
     flex: 1,
     fontSize: 16,
-    color: '#334155',
+    color: '#0D47A1',
+    fontWeight: '500',
   },
 
   counter: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#2563EB',
+    color: '#D32F2F',
     marginHorizontal: 10,
   },
 
   input: {
-    borderWidth: 1,
-    borderColor: '#CBD5E1',
-    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#007BFF',
+    borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 16,
     backgroundColor: '#FFFFFF',
-    color: '#0F172A',
+    color: '#000000',
   },
 
   button: {
-    backgroundColor: '#2563EB',
+    backgroundColor: '#007BFF', // solid blue button
     borderRadius: 10,
     paddingVertical: 12,
     paddingHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#2563EB',
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 3,
-    elevation: 2,
+    marginTop: 10,
   },
 
   buttonText: {
     color: '#FFFFFF',
     fontSize: 17,
-    fontWeight: '600',
-    letterSpacing: 0.3,
+    fontWeight: '700',
+    textTransform: 'uppercase',
   },
 });
