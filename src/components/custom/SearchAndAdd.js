@@ -42,7 +42,6 @@ export default function SearchAndAdd() {
         style={styles.input}
       />
 
-      {/* Add Box and Button */}
       <View style={{ flexDirection: 'row', marginVertical: 10, gap: 8 }}>
         <TextInput
           placeholder="Add new phrase"
@@ -53,7 +52,7 @@ export default function SearchAndAdd() {
         <Button onPress={handleAdd}>Add</Button>
       </View>
 
-      {/* Filtered List */}
+      
       <FlatList
         data={filteredItems}
         keyExtractor={(it) => it.id.toString()}
