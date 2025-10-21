@@ -1,9 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-/**
- * 🎨 Solid Color Design
- * Flat, clean, and modern style — no shadows, just bold colors and clear structure.
- */
 
 export const styles = StyleSheet.create({
   container: {
