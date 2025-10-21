@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, FlatList } from 'react-native';
-import { Text } from '../ui'; // ✅ use Text from ui layer
-import { Button } from '../ui'; // ✅ use Button from ui layer
+import { Text } from '../ui'; 
+import { Button } from '../ui'; 
 import { styles } from '../../styles/styles';
 import { initialAzkaar } from '../../data/azkaar';
 
